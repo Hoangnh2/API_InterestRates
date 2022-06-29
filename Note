@@ -1,3 +1,7 @@
+docker run -d --name jenkins -p 8088:8080 -p 50000:50000 -v D:\LAB\CICD\jenkins:/var/jenkins_home jenkins/jenkins:lts
 jenkins: p 8088, D:\LAB\CICD\jenkins:/var/jenkins_home, hoang/123
 branch: master -> main
 
+github webhook: https://e9d3-58-187-149-112.ap.ngrok.io/github-webhook/
+
+test
