@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/Hoangnh2/API_InterestRates.git'
+                sh 'git clone https://github.com/Hoangnh2/API_InterestRates.git'
             }
         }
     }
