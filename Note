@@ -1,5 +1,12 @@
 docker run -d --name jenkins -p 8088:8080 -p 50000:50000 -v D:\LAB\CICD\jenkins:/var/jenkins_home jenkins/jenkins:lts
 jenkins: p 8088, D:\LAB\CICD\jenkins:/var/jenkins_home, hoang/123
+
+
+export PATH=/var/jenkins_home/apache-maven-3.8.6/bin:$PATH
+export JAVA_HOME=/var/jenkins_home/jdk-18.0.1.1
+export PATH=$JAVA_HOME/bin:$PATH
+
+
 branch: master -> main
 
 github webhook: https://.ap.ngrok.io/github-webhook/
