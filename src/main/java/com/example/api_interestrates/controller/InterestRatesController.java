@@ -21,12 +21,12 @@ public class InterestRatesController {
     private InterestRatesService interestRatesService;
 
     @GetMapping("")
-    public ResponseEntity<?> getAll(){
+    public ResponseEntity<?> getAll() {
         List<InterestRatesMonthDTO> interest_rates = interestRatesService.getAll();
         return ResponseEntity.status(HttpStatus.OK).body(interest_rates);
     }
     @GetMapping("/{months}")
-    public ResponseEntity<?> getInterestRatesMonths(@PathVariable(value = "months") int months){
+    public ResponseEntity<?> getInterestRatesMonths(@PathVariable(value = "months") int months) {
         InterestRatesMonthDTO result = interestRatesService.getInterestRatesMonths(months);
         if (result == null)
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Không có lãi suất tương ứng");

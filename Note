@@ -1,4 +1,9 @@
+D:\LAB\CICD\docker in docker jenkins
+docker build --tag docker-in-docker-jenkins .
+docker run -d --group-add 0 -v "//var/run/docker.sock:/var/run/docker.sock" -v D:\LAB\CICD\jenkins:/var/jenkins_home -p 8088:8080 -p 50000:50000 --name jenkins docker-in-docker-jenkins
 docker run -d --name jenkins -p 8088:8080 -p 50000:50000 -v D:\LAB\CICD\jenkins:/var/jenkins_home jenkins/jenkins:lts
+
+
 jenkins: p 8088, D:\LAB\CICD\jenkins:/var/jenkins_home, hoang/123
 
 
@@ -9,6 +14,6 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 branch: master -> main
 
-github webhook: https://.ap.ngrok.io/github-webhook/
+github webhook: https://...ap.ngrok.io/github-webhook/
 
 test3

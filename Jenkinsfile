@@ -3,6 +3,8 @@ pipeline {
     environment {
         JAVA_HOME = "/var/jenkins_home/jdk-18.0.1.1"
         PATH = "/var/jenkins_home/apache-maven-3.8.6/bin:$JAVA_HOME/bin:$PATH"
+        dockerimagename = "hoangnguyendhbk/apiinterestrates"
+        dockerImage = ""
     }
     stages {
         stage('Clone') {
@@ -28,6 +30,13 @@ pipeline {
         stage('Package') {
             steps {
                 sh "mvn package"
+            }
+        }
+        stage('Build image') {
+            steps{
+                script {
+                    ockerImage = docker.build dockerimagename
+                }
             }
         }
     }
