@@ -10,9 +10,24 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build') {
+        stage('Clean') {
             steps {
-                sh "mvn clean install"
+                sh "mvn clean"
+            }
+        }
+        stage('Compile') {
+            steps {
+                sh "mvn compile"
+            }
+        }
+        stage('Unit test') {
+            steps {
+                sh "mvn test"
+            }
+        }
+        stage('Package') {
+            steps {
+                sh "mvn package"
             }
         }
     }
