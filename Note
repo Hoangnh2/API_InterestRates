@@ -1,6 +1,6 @@
 D:\LAB\CICD\docker in docker jenkins
 docker build --tag docker-in-docker-jenkins .
-docker run -d --group-add 0 -v "//var/run/docker.sock:/var/run/docker.sock" -v D:\LAB\CICD\jenkins:/var/jenkins_home -p 8088:8080 -p 50000:50000 --name jenkins docker-in-docker-jenkins
+docker run -d --group-add 0 -v "//var/run/docker.sock:/var/run/docker.sock" -v D:\LAB\CICD\jenkins:/var/jenkins_home --network minikube -p 8088:8080 -p 50000:50000 --name jenkins docker-in-docker-jenkins
 docker run -d --name jenkins -p 8088:8080 -p 50000:50000 -v D:\LAB\CICD\jenkins:/var/jenkins_home jenkins/jenkins:lts
 
 
@@ -17,3 +17,23 @@ branch: master -> main
 github webhook: https://...ap.ngrok.io/github-webhook/
 
 test3
+
+minikube start --driver=docker
+kubectl apply -f deploymentservice.yml
+minikube service --url nodeapp-service
+minikube service nodeapp-service
+
+kubectl delete -f deploymentservice.yml
+minikube pause
+minikube unpause
+minikube stop
+minikube delete --all
+
+#config
+cat ca.crt | base64 -w 0; echo
+cat profiles/minikube/client.crt | base64 -w 0; echo
+cat profiles/minikube/client.key | base64 -w 0; echo
+
+
+#run APP container with other port
+docker run -d --name apiinterestrates2 -p 8085:8080 hoangnguyendhbk/apiinterestrates
