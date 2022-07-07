@@ -29,7 +29,7 @@ public class InterestRatesController {
     public ResponseEntity<?> getInterestRatesMonths(@PathVariable(value = "months") int months) {
         InterestRatesMonthDTO result = interestRatesService.getInterestRatesMonths(months);
         if (result == null)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Không có lãi suất tương ứng");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Không có lãi suất tương ứng. API v1.0");
         else
             return ResponseEntity.status(HttpStatus.OK).body(result);
     }
