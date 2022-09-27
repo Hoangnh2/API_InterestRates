@@ -16,9 +16,8 @@ branch: master -> main
 
 github webhook: https://...ap.ngrok.io/github-webhook/
 
-test3
-
 minikube start --driver=docker
+minikube start --network minikube
 kubectl apply -f deploymentservice.yml
 minikube service --url nodeapp-service
 minikube service nodeapp-service
