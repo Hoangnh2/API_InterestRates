@@ -10,7 +10,7 @@ import java.util.List;
 
 @Component
 public class InterestRatesServiceImp implements InterestRatesService{
-    private static List<InterestRatesMonth> interest_rates = new ArrayList<InterestRatesMonth>();
+    private static final List<InterestRatesMonth> interest_rates = new ArrayList<>();
     static {
         interest_rates.add(new InterestRatesMonth(1, 3));
         interest_rates.add(new InterestRatesMonth(2, 3));
@@ -26,7 +26,7 @@ public class InterestRatesServiceImp implements InterestRatesService{
 
     @Override
     public List<InterestRatesMonthDTO> getAll() {
-        List<InterestRatesMonthDTO> result = new ArrayList<InterestRatesMonthDTO>();
+        List<InterestRatesMonthDTO> result = new ArrayList<>();
         for (InterestRatesMonth interest_rate : interest_rates){
             result.add(InterestRatesMonthMapper.toInterestRatesMonthDTO(interest_rate));
         }
@@ -38,7 +38,7 @@ public class InterestRatesServiceImp implements InterestRatesService{
         for (InterestRatesMonth interest_rate : interest_rates){
             if (interest_rate.getMonths() == months)
                 return InterestRatesMonthMapper.toInterestRatesMonthDTO(interest_rate);
-        };
+        }
         return null;
     }
 }
