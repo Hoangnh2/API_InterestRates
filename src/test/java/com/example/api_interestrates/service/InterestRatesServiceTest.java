@@ -19,6 +19,7 @@ public class InterestRatesServiceTest {
         InterestRatesService interestRatesService = context.getBean(InterestRatesService.class);
         Assertions.assertEquals(3, interestRatesService.getInterestRatesMonths(1).getRate());
         Assertions.assertEquals(5.5f, interestRatesService.getInterestRatesMonths(12).getRate());
+        Assertions.assertEquals(true, interestRatesService.getInterestRatesMonths(2).getRate() < interestRatesService.getInterestRatesMonths(6).getRate());
     }
 
     @Test

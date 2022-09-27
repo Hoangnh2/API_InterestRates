@@ -13,9 +13,9 @@ public class InterestRatesServiceImp implements InterestRatesService{
     private static List<InterestRatesMonth> interest_rates = new ArrayList<InterestRatesMonth>();
     static {
         interest_rates.add(new InterestRatesMonth(1, 3));
-        interest_rates.add(new InterestRatesMonth(2, 3));
+        interest_rates.add(new InterestRatesMonth(2, 4));
         interest_rates.add(new InterestRatesMonth(3, 3.3f));
-        interest_rates.add(new InterestRatesMonth(6, 4));
+        interest_rates.add(new InterestRatesMonth(6, 3));
         interest_rates.add(new InterestRatesMonth(9, 4));
         interest_rates.add(new InterestRatesMonth(12, 5.5f));
         interest_rates.add(new InterestRatesMonth(24, 5.3f));
