@@ -1,4 +1,5 @@
 docker network create --driver bridge minikube
+docker network rm minikube
 
 D:\LAB\CICD\docker in docker jenkins
 docker build --tag docker-in-docker-jenkins .
@@ -24,6 +25,8 @@ kubectl apply -f deploymentservice.yml
 minikube service --url nodeapp-service
 minikube service nodeapp-service
 
+minikube ssh docker pull hoangnguyendhbk/apiinterestrates:latest
+
 kubectl delete -f deploymentservice.yml
 minikube pause
 minikube unpause
@@ -33,10 +36,12 @@ minikube delete --all
 while (1) {kubectl get all -A; sleep 5}
 
 #config
+cd C:\Users\Hoangchamhoc\.minikube
 cat ca.crt | base64 -w 0; echo
 cat profiles/minikube/client.crt | base64 -w 0; echo
 cat profiles/minikube/client.key | base64 -w 0; echo
 
+-> C:\Users\Hoangchamhoc\.kube
 
 #run APP container with other port
 docker run -d --name apiinterestrates2 -p 8085:8080 hoangnguyendhbk/apiinterestrates
