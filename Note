@@ -36,3 +36,5 @@ cat profiles/minikube/client.key | base64 -w 0; echo
 
 #run APP container with other port
 docker run -d --name apiinterestrates2 -p 8085:8080 hoangnguyendhbk/apiinterestrates
+
+test
