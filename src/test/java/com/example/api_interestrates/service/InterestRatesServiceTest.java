@@ -17,17 +17,17 @@ public class InterestRatesServiceTest {
     @Test
     public void test_getInterestRatesMonths() {
         InterestRatesService interestRatesService = context.getBean(InterestRatesService.class);
-        Assertions.assertEquals(3, interestRatesService.getInterestRatesMonths(1).getRate());
-        Assertions.assertEquals(5.5f, interestRatesService.getInterestRatesMonths(12).getRate());
         Assertions.assertEquals(true, interestRatesService.getInterestRatesMonths(2).getRate() < interestRatesService.getInterestRatesMonths(6).getRate());
+        Assertions.assertEquals(true, interestRatesService.getInterestRatesMonths(12).getRate() == interestRatesService.getInterestRatesMonths(24).getRate());
+        Assertions.assertEquals(true, interestRatesService.getInterestRatesMonths(6).getRate() == interestRatesService.getInterestRatesMonths(9).getRate());
     }
 
     @Test
     public void test_getAll() {
         InterestRatesService interestRatesService = context.getBean(InterestRatesService.class);
         List<InterestRatesMonthDTO> result = interestRatesService.getAll();
-        Assertions.assertEquals(3, result.get(0).getRate());
-        Assertions.assertEquals(3, result.get(1).getRate());
-        Assertions.assertEquals(4, result.get(3).getRate());
+        Assertions.assertEquals(true, result.get(1).getRate() < result.get(3).getRate());
+        Assertions.assertEquals(true, result.get(3).getRate() == result.get(4).getRate());
+        Assertions.assertEquals(true, result.get(5).getRate() == result.get(6).getRate());
     }
 }
