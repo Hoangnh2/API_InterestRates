@@ -17,7 +17,7 @@ public class InterestRatesServiceImp implements InterestRatesService{
         interest_rates.add(new InterestRatesMonth(3, 3.3f));
         interest_rates.add(new InterestRatesMonth(6, 4));
         interest_rates.add(new InterestRatesMonth(9, 4));
-        interest_rates.add(new InterestRatesMonth(12, 5.5f));
+        interest_rates.add(new InterestRatesMonth(12, 7.4f));
         interest_rates.add(new InterestRatesMonth(24, 5.3f));
         interest_rates.add(new InterestRatesMonth(36, 5.3f));
         interest_rates.add(new InterestRatesMonth(48, 5.3f));
